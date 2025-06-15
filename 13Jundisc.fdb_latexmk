@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1750008873.69868 "13Jundisc.tex" "13Jundisc.pdf" "13Jundisc" 1750008875.64247 0
+["pdflatex"] 1750008963.92563 "13Jundisc.tex" "13Jundisc.pdf" "13Jundisc" 1750008965.87102 0
   "/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1726593875 2375 baa924870cfb487815765f9094cf3728 ""
   "/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1726593875 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1726593875 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -216,9 +216,9 @@
   "/opt/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726593875 5498194 34d313b590f78f31067828739fd13622 ""
   "/opt/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726593875 3326093 777f7d9c54541bb5a1b11bacc9fbbe61 ""
   "/opt/texlive/2024/texmf.cnf" 1726593875 585 d89e4959d6ce47100a8277b236c781f4 ""
-  "13Jundisc.aux" 1750008875.46453 656 2716b6b6320813eadeb298900a7684e4 "pdflatex"
-  "13Jundisc.out" 1750008875.46713 186 c24108a75fcdddd7b911518a47cdf1ae "pdflatex"
-  "13Jundisc.tex" 1750008872.68844 10316 9e29c8dcf35966fbce334f6b4549880f ""
+  "13Jundisc.aux" 1750008965.69235 656 2716b6b6320813eadeb298900a7684e4 "pdflatex"
+  "13Jundisc.out" 1750008965.69428 186 c24108a75fcdddd7b911518a47cdf1ae "pdflatex"
+  "13Jundisc.tex" 1750008962.78705 10334 56f8c528503feeba90c29607618a21ef ""
   (generated)
   "13Jundisc.aux"
   "13Jundisc.log"
