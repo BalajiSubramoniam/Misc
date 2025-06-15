@@ -1,0 +1,196 @@
+\documentclass[oneside,11pt]{amsart}
+\usepackage{capt-of}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{float} % To forcefully place figures at a particular place using the H option
+\usepackage{quiver}
+\usepackage{caption} % For empty captions without the colon in figures
+\usepackage{enumitem}
+\usepackage{nicefrac}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage[mathscr]{euscript}
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+\usepackage[]{mdframed}
+
+%\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
+\crefname{thm}{Theorem}{Theorems}
+\newtheorem{prop}[thm]{Proposition}
+\crefname{prop}{Proposition}{Propositions}
+\newtheorem{lem}[thm]{Lemma}
+\crefname{lem}{Lemma}{Lemmas}
+\newtheorem{cor}[thm]{Corollary}
+\crefname{cor}{Corollary}{Corollaries}
+\theoremstyle{definition}
+\newtheorem{ex}[thm]{Example}
+\crefname{ex}{Example}{Examples}
+\newtheorem{defn}[thm]{Definition}
+\crefname{defn}{Definition}{Definitions}
+
+\newtheorem{const}[thm]{Construction}
+\newtheorem{conj}[thm]{Conjecture}
+\crefname{conj}{Conjecture}{Conjectures}
+
+\newtheorem{obs}[thm]{Observation}
+\crefname{obs}{Observation}{Observations}
+
+\newtheorem{notn}[thm]{Notation}
+\crefname{notn}{Notation}{Notation}
+\newtheorem{conv}[thm]{Convention}
+\crefname{conv}{Convention}{Conventions}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\crefname{rem}{Remark}{Remarks}
+
+
+
+\begin{document}
+\section*{Discussion on 13 June 2025} 
+\begin{quotation}
+ The key goal here is to eventually prove the following results:
+ \begin{itemize}
+  \item Direct sums of exact sequences of (pre)sheaves on a topological space are exact.
+ \item Direct products of epimorphisms of sheaves on $X$ are not necessarily an epimorphism. (This is still incomplete. Once done, I'll append to the same link)
+ \item Let $\mathscr{T} $ is a triangulated category and $\mathscr{L} $ is a localizing subcategory. If $f:x\rightarrow y$ be a morphism in $\mathscr{T} $ that is mapped to $0$ by the projection $\mathscr{T} \rightarrow \mathscr{T}_{/\mathscr{L}}   $, then $f$ factors through an object of $\mathscr{L} $.  
+ \end{itemize}
+\end{quotation}
+\begin{notn}
+For a topological space $X$, $\textsf{Sh}(X)$ (resp. $\textsf{PSh}(X)$) denotes the category of sheaves (resp. presheaves) of abelian groups over $X$.      
+\end{notn}
+
+\begin{prop}\label{prop1}
+ Let $X$ be a topological space and $I$ be a set. If for each $i\in I$,
+ \begin{equation*}
+ 0 \longrightarrow  \mathscr{F}^{i} \longrightarrow \mathscr{G}^{i} \longrightarrow \mathscr{H}^{i} \longrightarrow 0  
+ \end{equation*}
+ is an exact sequence in $\emph{\textsf{PSh}}(X)$, then,
+ \begin{equation*}
+   0 \longrightarrow  \bigoplus_{i}\mathscr{F}^{i} \longrightarrow \bigoplus_{i}\mathscr{G}^{i} \longrightarrow \bigoplus_{i}\mathscr{H}^{i} \longrightarrow 0 
+ \end{equation*}
+ is also exact.
+\end{prop}
+\begin{proof}
+By assumption, for any open subset $U$ of $X$,
+\begin{equation*}
+ 0 \longrightarrow \mathscr{F}^{i}(U)  \longrightarrow \mathscr{G}^{i}(U) \longrightarrow \mathscr{H}^{i}(U) \longrightarrow 0
+\end{equation*}
+is exact. Since direct sums of exact sequences are exact in the category $\textsf{Ab}$ of abelian groups, the sequence
+\begin{equation*}
+ 0 \longrightarrow \left(\bigoplus_{i} \mathscr{F}^{i}\right)(U)  \longrightarrow  \left(\bigoplus_{i}\mathscr{G}^{i}\right)(U) \longrightarrow \left(\bigoplus_{i}\mathscr{H}^{i}\right)(U) \longrightarrow 0
+\end{equation*}
+is exact. Thus, it follows that
+\begin{equation*}
+ 0 \longrightarrow \bigoplus_{i}\mathscr{F}^{i} \longrightarrow \bigoplus_{i}\mathscr{G}^{i} \longrightarrow \bigoplus_{i}\mathscr{H}^{i} \longrightarrow 0
+\end{equation*}
+is exact.
+\end{proof}
+\begin{prop}
+ Let $X$ be a topological space and $I$ be a set. If for each $i\in I$,
+ \begin{equation*}
+ 0 \longrightarrow  \mathscr{F}^{i} \longrightarrow \mathscr{G}^{i} \longrightarrow \mathscr{H}^{i} \longrightarrow 0  
+ \end{equation*}
+ is an exact sequence in $\emph{\textsf{Sh}}(X)$, then,
+ \begin{equation}\label{eq2}
+   0 \longrightarrow  \bigoplus_{i}\mathscr{F}^{i} \longrightarrow \bigoplus_{i}\mathscr{G}^{i} \longrightarrow \bigoplus_{i}\mathscr{H}^{i} \longrightarrow 0 
+ \end{equation}
+ is also exact.
+\end{prop}
+\begin{proof}
+	Let $U:\textsf{Sh}(X) \rightarrow \textsf{PSh}(X) $ denote the forgetful functor and ${\_}^{\dag}: \textsf{Sh}(X)  \rightarrow  \textsf{PSh}(X)$ denote the sheafification. Then, the sequence in \cref{eq2} is isomorphic to the following sequence
+	\begin{equation*}
+	 0 \rightarrow (\bigoplus_{i} U(\mathscr{F}^{i}))^{\dag} \rightarrow (\bigoplus_{i} U(\mathscr{G}^{i}))^{\dag} \rightarrow (\bigoplus_{i} U(\mathscr{H}^{i}))^{\dag} \rightarrow 0
+	\end{equation*}
+	For any $x\in X$, since the forgetful and sheafification functors preserve stalks and since direct sums commute with colimits, applying the stalk functor $(\_)_{x}$ yields (upto isomorphism) the following sequence
+\begin{equation*}
+ 0 \longrightarrow  \bigoplus_{i}\mathscr{F}^{i}_{x} \longrightarrow \bigoplus_{i}\mathscr{G}^{i}_{x} \longrightarrow \bigoplus_{i}\mathscr{H}^{i}_{x} \longrightarrow 0 
+\end{equation*}
+which is exact since direct sums of exact sequences are exact in $\textsf{Ab} $. 
+\end{proof}
+
+
+\begin{prop}
+ Let $\mathscr{T} $ be a triangulated category, $\mathscr{L} $ a localising subcategory and $\mathscr{T}_{/\mathscr{L} }$ denote the Verdier quotient. A morphism $f:x \rightarrow y $ in $\mathscr{T} $ is mapped to the zero morphism by the projection $\mathscr{T} \rightarrow \mathscr{T}_{/\mathscr{L} }  $ if and only if $f$ factors through an object in $\mathscr{L} $.
+\end{prop}
+\begin{proof}
+ Suppose that $f$ is taken to $0$ by the projection. That is, there exist $z,z'\in \mathscr{T} $, quasi-isomorphisms (relative to $\mathscr{L} $) $\sigma ,\sigma '$ and morphisms $f',g,h$ in $\mathscr{T} $ making the following diagram commute.      
+ % https://q.uiver.app/#q=WzAsNSxbMCwyLCJ4Il0sWzIsMiwieiciXSxbNCwyLCJ5Il0sWzIsMCwieSJdLFsyLDQsInoiXSxbMCwxLCJmJyJdLFsyLDEsIlxcc2lnbWEnIiwyXSxbMiwzLCIiLDAseyJsZXZlbCI6Miwic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dLFswLDMsImYiXSxbMywxLCJnIiwxXSxbMCw0LCIwIiwyXSxbNCwxLCJoIiwxXSxbMiw0LCJcXHNpZ21hIl0sWzIsNCwiXFxzaW0iLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJub25lIn0sImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMiwxLCJcXHNpbSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6Im5vbmUifSwiaGVhZCI6eyJuYW1lIjoibm9uZSJ9fX1dXQ==
+\[\begin{tikzcd}
+	&& y \\
+	\\
+	x && {z'} && y \\
+	\\
+	&& z
+	\arrow["g"{description}, from=1-3, to=3-3]
+	\arrow["f", from=3-1, to=1-3]
+	\arrow["{f'}", from=3-1, to=3-3]
+	\arrow["0"', from=3-1, to=5-3]
+	\arrow[equals, from=3-5, to=1-3]
+	\arrow["{\sigma'}"', from=3-5, to=3-3]
+	\arrow["\sim", draw=none, from=3-5, to=3-3]
+	\arrow["\sigma", from=3-5, to=5-3]
+	\arrow["\sim"', draw=none, from=3-5, to=5-3]
+	\arrow["h"{description}, from=5-3, to=3-3]
+\end{tikzcd}\]
+Equivalently, there exists a quasi-isomorphism $g$ such that $g\circ f=0$. Hence, there exists a distinguished triangle of the following form in $\mathscr{T} $
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJ5Il0sWzIsMCwieiJdLFs0LDAsInciXSxbNiwwLCJcXFNpZ21hIHkiXSxbMCwxLCJnIl0sWzEsMiwiXFxhbHBoYSJdLFsyLDMsIlxcYmV0YSJdXQ==
+\[\begin{tikzcd}
+	y && z && w && {\Sigma y}
+	\arrow["g", from=1-1, to=1-3]
+	\arrow["\alpha", from=1-3, to=1-5]
+	\arrow["\beta", from=1-5, to=1-7]
+\end{tikzcd}\]
+where $w\in \mathscr{L} $. By one of the axioms defining a (pre)triangulated category, there exists a dotted arrow $x \rightarrow \Sigma^{-1}w$ making the following diagram commute, thus yielding the required factorisation.
+% https://q.uiver.app/#q=WzAsOCxbMCwyLCJcXFNpZ21hXnstMX15Il0sWzIsMiwiXFxTaWdtYV57LTF9eiJdLFs0LDIsIlxcU2lnbWFeey0xfXciXSxbNiwyLCJ5Il0sWzAsMCwiXFxTaWdtYV57LTF9eCJdLFsyLDAsIjAiXSxbNCwwLCJ4Il0sWzYsMCwieCJdLFswLDEsIlxcU2lnbWFeey0xfWciXSxbMiwzLCItXFxTaWdtYV57LTF9XFxiZXRhIl0sWzEsMiwiXFxTaWdtYV57LTF9XFxhbHBoYSJdLFs0LDAsIlxcU2lnbWFeey0xfWYiLDJdLFs0LDVdLFs1LDZdLFs2LDcsIlxcdGV4dHtJZH0iXSxbNywzLCJmIl0sWzYsMiwiIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzUsMSwiMCIsMV1d
+\[\begin{tikzcd}
+	{\Sigma^{-1}x} && 0 && x && x \\
+	\\
+	{\Sigma^{-1}y} && {\Sigma^{-1}z} && {\Sigma^{-1}w} && y
+	\arrow[from=1-1, to=1-3]
+	\arrow["{\Sigma^{-1}f}"', from=1-1, to=3-1]
+	\arrow[from=1-3, to=1-5]
+	\arrow["0"{description}, from=1-3, to=3-3]
+	\arrow["{\text{Id}}", from=1-5, to=1-7]
+	\arrow[dashed, from=1-5, to=3-5]
+	\arrow["f", from=1-7, to=3-7]
+	\arrow["{\Sigma^{-1}g}", from=3-1, to=3-3]
+	\arrow["{\Sigma^{-1}\alpha}", from=3-3, to=3-5]
+	\arrow["{-\Sigma^{-1}\beta}", from=3-5, to=3-7]
+\end{tikzcd}\]
+Conversely, suppose that $f$ factors as in the following diagram, where $w\in L$.
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJ4Il0sWzIsMCwieSJdLFsxLDEsInciXSxbMCwxLCJmIl0sWzAsMiwiXFxhbHBoYSIsMl0sWzIsMSwiXFxiZXRhIiwyXV0=
+\[\begin{tikzcd}
+	x && y \\
+	& w
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\alpha"', from=1-1, to=2-2]
+	\arrow["\beta"', from=2-2, to=1-3]
+\end{tikzcd}\]
+
+As previously argued, it is sufficient to show that there exists a quasi-isomorphism $g$ such that $g\circ f=0$. By one of the axioms defining a (pre)triangulated category, there exists a diagram of the following form, where the rows are distinguished and there is a dotted arrow that completes the morphism of distinguished triangles.
+% https://q.uiver.app/#q=WzAsOCxbMCwwLCJ4Il0sWzIsMCwieSJdLFswLDIsInciXSxbMiwyLCJ5Il0sWzQsMCwiXFx0ZXh0e2NvbmV9KGYpIl0sWzYsMCwiXFxTaWdtYSB4Il0sWzYsMiwiXFxTaWdtYSB3Il0sWzQsMiwiXFx0ZXh0e2NvbmV9KFxcYmV0YSkiXSxbMCwxLCJmIl0sWzAsMiwiXFxhbHBoYSIsMl0sWzIsM10sWzEsMywiIiwwLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XSxbMSw0XSxbNCw1XSxbNSw2XSxbMyw3XSxbNyw2XSxbNCw3LCIiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	x && y && {\text{cone}(f)} && {\Sigma x} \\
+	\\
+	w && y && {\text{cone}(\beta)} && {\Sigma w}
+	\arrow["f", from=1-1, to=1-3]
+	\arrow["\alpha"', from=1-1, to=3-1]
+	\arrow[from=1-3, to=1-5]
+	\arrow[equals, from=1-3, to=3-3]
+	\arrow[from=1-5, to=1-7]
+	\arrow[dashed, from=1-5, to=3-5]
+	\arrow["\Sigma \alpha",from=1-7, to=3-7]
+	\arrow["\beta ",from=3-1, to=3-3]
+	\arrow[from=3-3, to=3-5]
+	\arrow[from=3-5, to=3-7]
+\end{tikzcd}\]
+We take the morphism $y \rightarrow \text{cone}(\beta )$ in the above diagram to be $g$.  
+\end{proof}
+\end{document}

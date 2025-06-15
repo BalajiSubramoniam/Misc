@@ -1,0 +1,110 @@
+\documentclass[oneside,11pt]{amsart}
+\usepackage{capt-of}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{float} % To forcefully place figures at a particular place using the H option
+\usepackage{quiver}
+\usepackage{caption} % For empty captions without the colon in figures
+\usepackage{enumitem}
+\usepackage{nicefrac}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage[mathscr]{euscript}
+\usepackage{mlmodern}
+\usepackage[T1]{fontenc}
+\usepackage[]{mdframed}
+
+%\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
+\crefname{thm}{Theorem}{Theorems}
+\newtheorem{prop}[thm]{Proposition}
+\crefname{prop}{Proposition}{Propositions}
+\newtheorem{lem}[thm]{Lemma}
+\crefname{lem}{Lemma}{Lemmas}
+\newtheorem{cor}[thm]{Corollary}
+\crefname{cor}{Corollary}{Corollaries}
+\theoremstyle{definition}
+\newtheorem{ex}[thm]{Example}
+\crefname{ex}{Example}{Examples}
+\newtheorem{defn}[thm]{Definition}
+\crefname{defn}{Definition}{Definitions}
+
+\newtheorem{conj}[thm]{Conjecture}
+\crefname{conj}{Conjecture}{Conjectures}
+
+\newtheorem{obs}[thm]{Observation}
+\crefname{obs}{Observation}{Observations}
+
+\newtheorem{notn}[thm]{Notation}
+\crefname{notn}{Notation}{Notation}
+\newtheorem{conv}[thm]{Convention}
+\crefname{conv}{Convention}{Conventions}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\crefname{rem}{Remark}{Remarks}
+
+
+
+\begin{document}
+\title{Supplement to \cite{BN}}
+\author{}
+\date{\vspace{-1cm}}
+\maketitle
+
+\begin{notn}~
+ \begin{enumerate}
+  \item For an abelian category $\mathscr{A} $, $\textsf{Comp}(\mathscr{A} )$ denotes the category of unbounded cochain complexes over $\mathscr{A} $ and $K(\mathscr{A} )$ denotes the corresponding homotopy category. For a morphism $f$ in $\textsf{Comp}(\mathscr{A} )$, we write $[f]$ to denote its image in $K(\mathscr{A} )$ under the projection $\textsf{Comp}(\mathscr{A} ) \rightarrow K(\mathscr{A} )$.         
+ \end{enumerate}
+ 
+\end{notn}
+
+\section{Direct Sums in Triangulated Categories}
+
+\subsection*{Proof of Lemma 1.1}
+Let $\{A_{i}\}_{i\in I}$ be an indexed collection of objects in $\textsf{Comp}(\mathscr{A})$. Let $C:=\bigoplus_{i\in I} A_{i}$ along with structure maps $\iota _{j}:A_{j} \rightarrow C$ be their coproduct in $\textsf{Comp}(\mathscr{A} )$. Let $D$ be an object in $ $     
+
+\subsection*{On Remark 1.4} 
+\subsubsection*{(1.3.2)$\Rightarrow $(1.3.1)}
+  Suppose that $A$ and $B$ are objects in a triangulated category $(\mathscr{T}, \Sigma)$  with all countable direct sums. Let $\mathscr{L}  $ be a triangulated subcategory that is closed under countable direct sums. More precisely, we require not merely that countable direct sums in $\mathscr{T} $  of objects in $\mathscr{L} $ exist in $\mathscr{L} $ but that \emph{any} direct sum  in $\mathscr{T} $ of a collection of objects in $\mathscr{L} $ is contained in $\mathscr{L} $. Thus $\mathscr{L} $ is necessarily a replete triangulated subcategory of $\mathscr{T} $. Let 
+\begin{align*}
+ C:=(B\oplus A) \oplus (B\oplus A ) \oplus \ldots \\
+C':= (A\oplus B)\oplus (A\oplus B)\oplus \ldots            
+\end{align*}
+Then, $C,C'$ are contained in $\mathscr{L} $ and $C'\cong A \oplus C$. Further, the triangle 
+\begin{equation*}
+ C \longrightarrow C' \longrightarrow A \longrightarrow \Sigma C
+\end{equation*}
+is distinguished in $\mathscr{T} $. Thus, $A\in \mathscr{L} $.
+\subsubsection*{On Rickard's criterion}
+\begin{defn}[\'{E}paisse subcategories, \cite{SGA}]
+  Let $\mathscr{T} $ be a triangulated category.  A triangulated and full subcategory $\mathscr{E} $ of $\mathscr{T} $ is said to be \emph{\'{e}paisse} if for all $f:X \rightarrow Y$ in $\mathscr{T}$ that factors through an object in $\mathscr{E} $ and is part of a distinguished triangle $(X,Y,Z,f,g,h)$ in $\mathscr{T} $ with $Z$ contained in $\mathscr{E} $, both $X$ and $Y$ are contained in $\mathscr{E} $.         
+\end{defn}
+\begin{prop}[Rickard]
+ Let $\mathscr{E} $ be a triangulated and full subcategory of a triangulated category $\mathscr{T} $. Then, $\mathscr{E} $ is \'{e}paisse if and only if every direct summand of an object in $\mathscr{E} $ is contained in $\mathscr{E} $.  
+\end{prop}
+The following is proof is a slightly more detailed version of \cite[Criterion 1.3]{Nee} 
+\begin{proof}
+ Suppose first that $\mathscr{E} $ is \'{e}paisse. Let $A,B$ be objects in $\mathscr{T} $ such that $A\oplus B$ is contained in $\mathscr{E} $. Then, the following triangle is distinguished
+\begin{equation*}
+ \Sigma^{-1}B \overset{0}{\longrightarrow} A \longrightarrow A \oplus B \longrightarrow B
+\end{equation*}
+Since $\mathscr{E} $ is \'{e}paisse, $A$ is contained in $\mathscr{E} $.\\
+Conversely, suppose that every direct summand of an object in $\mathscr{E} $ is contained in $\mathscr{E} $.     
+\end{proof}
+
+
+
+\newpage
+\begin{thebibliography}{Neil1234}
+\bibitem[BN93]{BN} Bökstedt, Marcel, and Amnon Neeman. "Homotopy limits in triangulated categories." \emph{Compositio Mathematica} 86, no. 2 (1993): 209-234.
+\bibitem[Ric89]{Ric} Rickard, Jeremy. "Derived categories and stable equivalence." \emph{Journal of pure and applied Algebra} 61, no. 3 (1989): 303-317.
+	
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[oneside,11pt]{article}
+\usepackage{capt-of}
+\usepackage{xcolor}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{float} % To forcefully place figures at a particular place using the H option
+\usepackage{quiver}
+\usepackage{caption} % For empty captions without the colon in figures
+\usepackage{enumitem}
+\usepackage{nicefrac}
+\usepackage{hyperref}
+\usepackage[capitalise]{cleveref}
+\usepackage[mathscr]{euscript}
+\usepackage{stmaryrd}
+\usepackage{mlmodern}
+\usepackage[T1]{}
+\usepackage[]{mdframed}
+
+%\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
+\crefname{thm}{Theorem}{Theorems}
+\newtheorem{prop}[thm]{Proposition}
+\crefname{prop}{Proposition}{Propositions}
+\newtheorem{lem}[thm]{Lemma}
+\crefname{lem}{Lemma}{Lemmas}
+\newtheorem{cor}[thm]{Corollary}
+\crefname{cor}{Corollary}{Corollaries}
+\theoremstyle{definition}
+\newtheorem{ex}[thm]{Example}
+\crefname{ex}{Example}{Examples}
+\newtheorem{defn}[thm]{Definition}
+\crefname{defn}{Definition}{Definitions}
+\newtheorem{defnot}[thm]{Definition/Notation}
+\crefname{defnot}{Definition/Notation}{Definitions/Notations}
+
+\newtheorem{conj}[thm]{Conjecture}
+\crefname{conj}{Conjecture}{Conjectures}
+
+\newtheorem{obs}[thm]{Observation}
+\crefname{obs}{Observation}{Observations}
+
+\newtheorem{notn}[thm]{Notation}
+\crefname{notn}{Notation}{Notation}
+\newtheorem{conv}[thm]{Convention}
+\crefname{conv}{Convention}{Conventions}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\crefname{rem}{Remark}{Remarks}
+
+
+
+\begin{document}
+\title{\textbf{Some Functors and Adjunctions involving Complexes and Bicomplexes}}
+\author{}
+\date{\vspace{-1.5cm}}
+\maketitle
+\begin{defnot}\label{compbicomp}
+ For an abelian category $\mathscr{A} $, by a \emph{complex} over $\mathscr{A} $, we mean unbounded cochain complexes of objects in $\mathscr{A} $. We let $\textsf{Comp}(\mathscr{A} )$ denote the abelian category of complexes over $\mathscr{A} $.  Similarly, by a \emph{bicomplex} over $\mathscr{A} $, we mean an unbounded cochain complex over $\textsf{Comp}(\mathscr{A} )$. Equivalently and more conveniently, a bicomplex over $\mathscr{A} $ essentially consists of
+ \begin{itemize}
+  \item Objects $A^{i,j}$ in $\mathscr{A} $ for all $i,j\in \mathscr{A} $
+ \item Morphisms $d_{\shortuparrow,A}^{i,j} : A^{i,j} \rightarrow A^{i,j+1} $ in $\mathscr{A} $ for all $i,j\in \mathbb{Z} $
+ \item Morphisms $d_{\shortrightarrow,A}^{i,j}:A^{i,j} \rightarrow A^{i+1,j} $ in $\mathscr{A} $  for all $i,j\in \mathbb{Z} $ 
+ \end{itemize}
+ such that
+ \begin{itemize}
+	 \item $d_{\shortuparrow,A}^{i,j+1}\circ d_{\shortuparrow,A}^{i,j}=0$ for all $i,j\in \mathbb{Z} $
+	 \item $d_{\shortrightarrow,A}^{i,j+1}\circ d_{\shortrightarrow,A}^{i,j}=0$ for all $i,j\in \mathbb{Z} $
+	 \item $ d_{\shortuparrow,A}^{i+1,j} \circ d_{\shortrightarrow,A}^{i,j}=d_{\shortrightarrow,A}^{i,j+1} \circ d_{\shortuparrow,A}^{i,j}$ for all $i,j\in \mathbb{Z} $. 
+ \end{itemize}
+ We denote the category of bicomplexes over $\mathscr{A} $ by $\textsf{Bicomp}(\mathscr{A})$.  
+\end{defnot}
+\begin{rem}
+	We will use the notation introduced in \cref{compbicomp} to describe bicomplexes, often without explicit mention. For instance, we simply write ``$X$ is a bicomplex over $\mathscr{A} $'' to indicate the data of objects $X^{i,j}$ and morphisms $d_{\shortrightarrow ,X}^{i,j}, d_{\shortuparrow ,X}^{i,j}$ satisfying the appropriate conditions as in \cref{compbicomp}. Furthermore, if the underlying complex and indices are either clear from the context or irrelevant, we abuse notation and write $d_{\shortrightarrow }$ (resp. $d_{\shortuparrow }$) instead of $d_{\shortrightarrow ,X}^{i,j}$ (resp. $d_{\shortrightarrow ,X}^{i,j}$). Analogously, when we say ``$Y$ is a complex'', we take for granted the data of objects $Y^{i}$ in $\mathscr{A} $ and morphisms $d_{Y}^{i}: Y^{i} \rightarrow  Y^{i+1}$ for all $i\in \mathbb{Z} $, such that $d^{i+1}_Y\circ d^{i}_Y=0$ for all $i\in \mathbb{Z} $. Again, we shorten $d^{i}_{Y}$ to $d_{Y}$ or just $d$ if it causes no confusion.         
+\end{rem}
+
+\begin{conv}
+	Throughout, we will reserve the symbol $\mathscr{A} $ for an arbitrary abelian category that has all countable products and coproducts. Unless otherwise mentioned, complexes and bicomplexes are assumed to be over $\mathscr{A} $.  
+\end{conv}
+\begin{defn}
+ Define a functor $\mathcal{D}: \textsf{Comp}(\mathscr{A} )  \rightarrow  \textsf{Bicomp}(\mathscr{A} )$ in the following manner
+ \begin{itemize}
+  \item For $A\in \textsf{Comp}(\mathscr{A} )$, $\mathcal{D}(A)$ is the bicomplex given by
+	  \begin{itemize}
+	   \item $\mathcal{D}(A)^{i,j}= A^{i+j}$ for all $i,j\in \mathbb{Z} $ 
+	 \item $d_{\shortrightarrow , \mathcal{D}(A) }^{i,j}= d_{\shortuparrow , \mathcal{D}(A) }^{i,j} = d_{A}^{i+j}$ for all $i,j\in \mathbb{Z} $. 
+	  \end{itemize}
+  \item If $f:A \rightarrow B $ is a morphism in $\textsf{Comp}(\mathscr{A} )$, then $\mathcal{D}(f)$ is the morphism of bicomplexes induced by the maps $\mathcal{D}(A)^{i,j} = A^{i+j} \xrightarrow{f^{i+j}} B^{i+j}= \mathcal{D}(B)^{i,j}$ 
+ \end{itemize}
+\end{defn}
+
+
+
+\begin{defn}
+ Suppose that $\mathscr{A}$ admits all countable coproducts. Then, we may define a functor $\mathcal{L}:\textsf{Bicomp}(\mathscr{A} )  \rightarrow \textsf{Comp}(\mathscr{A} ) $ in the following manner.  
+\end{defn}
+
+
+\end{document}
