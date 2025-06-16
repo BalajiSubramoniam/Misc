@@ -366,6 +366,8 @@ INPUT /opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /opt/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
+INPUT /opt/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
+INPUT /opt/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm5.tfm
 INPUT 13Jundisc.aux
 INPUT ./13Jundisc.out
 INPUT ./13Jundisc.out
@@ -374,13 +376,17 @@ INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmbx10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmcsc10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmex10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi10.pfb
+INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi6.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb
+INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmmi9.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr6.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr8.pfb
+INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmr9.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmri10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmss10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy6.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/mlmodern/mlmsy8.pfb
 INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+INPUT /opt/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

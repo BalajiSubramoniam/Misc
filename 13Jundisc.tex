@@ -57,9 +57,9 @@
 \begin{quotation}
  The key goal here is to eventually prove the following results:
  \begin{itemize}
-  \item Direct sums of exact sequences of (pre)sheaves on a topological space are exact.
- \item Direct products of epimorphisms of sheaves on $X$ are not necessarily epimorphisms. (This is still incomplete. Once done, I'll append to the same link)
- \item Let $\mathscr{T} $ be a triangulated category and $\mathscr{L} $ be a localizing subcategory of $\mathscr{T} $. If $f:x\rightarrow y$ be a morphism in $\mathscr{T} $ that is mapped to $0$ by the projection $\mathscr{T} \rightarrow \mathscr{T}_{/\mathscr{L}}   $, then $f$ factors through an object of $\mathscr{L} $.  
+	 \item Direct sums of exact sequences of (pre)sheaves on a topological space are exact. (\cref{prop1,prop2})
+	 \item Direct products of epimorphisms of sheaves on $X$ are not necessarily epimorphisms. (\cref{const1})
+	 \item Let $\mathscr{T} $ be a triangulated category and $\mathscr{L} $ be a localizing subcategory of $\mathscr{T} $. If $f:x\rightarrow y$ be a morphism in $\mathscr{T} $ that is mapped to $0$ by the projection $\mathscr{T} \rightarrow \mathscr{T}_{/\mathscr{L}}   $, then $f$ factors through an object of $\mathscr{L} $. (\cref{proptri})
  \end{itemize}
 \end{quotation}
 \begin{notn}
@@ -92,7 +92,7 @@ is exact. Thus, it follows that
 \end{equation*}
 is exact.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{prop2}
  Let $X$ be a topological space and $I$ be a set. If for each $i\in I$,
  \begin{equation*}
  0 \longrightarrow  \mathscr{F}^{i} \longrightarrow \mathscr{G}^{i} \longrightarrow \mathscr{H}^{i} \longrightarrow 0  
@@ -115,8 +115,29 @@ is exact.
 which is exact since direct sums of exact sequences are exact in $\textsf{Ab} $. 
 \end{proof}
 
+\begin{const}\label{const1}
+	Define $$X:=\{ 0 \} \cup \left\{ \frac{1}{n} \;|\;n\in \mathbb{N}  \right\} \subseteq \mathbb{R} $$ 
+and
+$$ \tau:=\{ [0,m)\cap X\;|\;m\in \mathbb{R}_{\geqslant 0} \} \cup \{ (0,m)\cap X\;|\;m\in \mathbb{R}_{\geqslant 0}  \}   $$
+It is easy to see that $(X,\tau)$ is a topological space. For each $n\in \mathbb{N} $, define a presheaf $\mathscr{F}_{n}$ on $X$ as follows
+\begin{align*}
+\mathscr{F}_{n}(U):=\begin{cases}
+	\mathbb{Z}  &\text{ if } \quad \emptyset \neq U\subseteq [0,1/n) \\
+	0  & \text{ otherwise} 
+\end{cases}
+\end{align*}
+and the restriction map $\mathscr{F}_{n}(U)\rightarrow \mathscr{F}_{n}(V) $ is defined to be $\text{Id}_{\mathbb{Z} }$ if $\emptyset \neq V \subseteq U\subseteq [0,\frac{1}{n})$ and $0$ otherwise. In fact, $\mathscr{F}_{n}$ is further a sheaf. Base identity is clear and it is sufficient to check base gluability on open covers of the form $[0,\frac{1}{m'})=[0,\frac{1}{m})\cup (0,\frac{1}{m'})$ where $m'<m$.
 
-\begin{prop}
+Let $\mathscr{G}:=\textsf{Sky}_{0}(\mathbb{Z} ) $, the skyscraper sheaf at $0$ over $X$ with stalk $\mathbb{Z} $ at $0$. By adjointness, the identity map $(\mathscr{F}_{n})_{0}= \mathbb{Z}  \rightarrow \mathbb{Z} $ induces a surjective map of sheaves $\phi _{n}:\mathscr{F}_{n}\rightarrow \mathscr{G} $ for each $n\in \mathbb{N} $. We claim that $\prod_{i}\phi _{i}: \prod_{i}\mathscr{F}_{i} \rightarrow \prod_{i}\mathscr{G}   $ is not surjective.   It is easy to see that $(\prod_{i}\mathscr{G})_{0}\cong \prod_{i}\mathbb{Z} $ which is uncountable. However, for any given open neighbourhood $U$ of $0$, $\mathscr{F}_{i}(U)$ is $0$ for large enough $i$. Thus, every abelian group appearing in the countable colimit defining the stalk $(\prod_{i}\mathscr{F}_{i})_{0}$ is countable and consequently, the stalk $(\prod_{i}(\mathscr{F}_{i} ))_{0}$ is itself countable. This proves that $\prod_{i}\phi _{i}$ is not surjective.\footnote{The countability argument to simplify the proof of $\prod_{i}\phi _{i}$ not being surjective is due to a friend, Atharva Raje, who listened to an earlier and dirtier version of the proof}.     
+\end{const}
+
+
+
+
+
+
+
+\begin{prop}\label{proptri}
  Let $\mathscr{T} $ be a triangulated category, $\mathscr{L} $ a localising subcategory and $\mathscr{T}_{/\mathscr{L} }$ denote the Verdier quotient. A morphism $f:x \rightarrow y $ in $\mathscr{T} $ is mapped to the zero morphism by the projection $\mathscr{T} \rightarrow \mathscr{T}_{/\mathscr{L} }  $ if and only if $f$ factors through an object in $\mathscr{L} $.
 \end{prop}
 \begin{proof}
